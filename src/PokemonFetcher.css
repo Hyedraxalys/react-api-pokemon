@@ -18,6 +18,12 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  max-height: 500px; /* Limitar la altura máxima */
+  overflow-y: auto; /* Habilitar desplazamiento vertical */
+  padding: 10px;
+  border: 2px solid #ffcc00; /* Opcional: agregar un borde para destacar */
+  background-color: #212121; /* Fondo oscuro para contraste */
+  border-radius: 10px;
 }
 
 .pokemon-card {
@@ -194,6 +200,12 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  max-height: 500px; /* Limitar la altura máxima */
+  overflow-y: auto; /* Habilitar desplazamiento vertical */
+  padding: 10px;
+  border: 2px solid #ffcc00; /* Opcional: agregar un borde para destacar */
+  background-color: #212121; /* Fondo oscuro para contraste */
+  border-radius: 10px;
 }
 
 /* Tarjeta estilo retro */

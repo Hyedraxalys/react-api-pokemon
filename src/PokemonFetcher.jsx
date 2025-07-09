@@ -146,10 +146,9 @@ const PokemonFetcher = () => {
       const resTipo = await fetch(`https://pokeapi.co/api/v2/type/${tipoTraducido}`);
       if (resTipo.ok) {
         const dataTipo = await resTipo.json();
-        const primeros5 = dataTipo.pokemon.slice(0, 5);
 
         const detalles = await Promise.all(
-          primeros5.map(p => fetch(p.pokemon.url).then(r => r.json()))
+          dataTipo.pokemon.map(p => fetch(p.pokemon.url).then(r => r.json()))
         );
 
         const resultado = detalles.map(p => ({
@@ -164,7 +163,6 @@ const PokemonFetcher = () => {
       }
 
       // Buscar por nombre (ignorando acentos)
-      // Buscar el nombre real en la lista de nombres
       const nombreMatch = nombresPokemon.find(n => normalizar(n) === textoLower);
       const nombreParaBuscar = nombreMatch || textoLower;
       const resNombre = await fetch(`https://pokeapi.co/api/v2/pokemon/${nombreParaBuscar}`);
@@ -202,7 +200,7 @@ const PokemonFetcher = () => {
         normalizar(tipo).includes(textoNorm)
       );
       // Unir y limitar a 5 sugerencias
-      const sugerenciasUnidas = [...sugerenciasTipos, ...sugerenciasNombres].slice(0, 5);
+      const sugerenciasUnidas = [...sugerenciasTipos, ...sugerenciasNombres].slice(0,5);
       setSugerencias(sugerenciasUnidas);
     } else {
       setSugerencias([]);
